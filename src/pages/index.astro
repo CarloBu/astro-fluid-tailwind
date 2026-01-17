@@ -4,27 +4,79 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Fluid Design System">
 	<!-- ========================================
-	     HEADER - Minimal, tight
+	     HEADER - Fixed rem sizes, lg breakpoint
 	     ======================================== -->
-	<header class="fixed top-0 left-0 right-0 z-50 py-fluid-16 gutter bg-background/80 backdrop-blur-sm">
+	<header class="fixed top-0 left-0 right-0 z-50 py-4 px-6 lg:px-8 bg-background/80 backdrop-blur-sm">
 		<nav class="flex items-center justify-between">
-			<a href="/" class="text-body font-medium text-foreground">
+			<!-- Logo -->
+			<a href="/" class="text-base font-medium text-foreground">
 				Studio
 			</a>
 
-			<div class="flex items-center gap-fluid-24">
-				<a href="#work" class="text-body-sm text-foreground-muted hover:text-foreground transition-colors hidden md:block">
+			<!-- Desktop Navigation (visible at lg: 1024px+) -->
+			<div class="hidden lg:flex items-center gap-8">
+				<a href="#work" class="text-sm text-foreground-muted hover:text-foreground transition-colors">
 					Work
 				</a>
-				<a href="#about" class="text-body-sm text-foreground-muted hover:text-foreground transition-colors hidden md:block">
+				<a href="#about" class="text-sm text-foreground-muted hover:text-foreground transition-colors">
 					About
 				</a>
-				<a href="#contact" class="text-body-sm text-foreground hover:text-accent transition-colors">
+				<a href="#contact" class="text-sm text-foreground-muted hover:text-foreground transition-colors">
+					Services
+				</a>
+				<a href="#contact" class="text-sm text-foreground hover:text-accent transition-colors">
 					Let's talk
 				</a>
 			</div>
+
+			<!-- Mobile Menu Button (visible below lg) -->
+			<button
+				id="menu-toggle"
+				class="lg:hidden w-10 h-10 flex items-center justify-center"
+				aria-label="Toggle menu"
+				aria-expanded="false"
+			>
+				<div class="menu-icon">
+					<span class="menu-line menu-line-1"></span>
+					<span class="menu-line menu-line-2"></span>
+				</div>
+			</button>
 		</nav>
 	</header>
+
+	<!-- ========================================
+	     MOBILE MENU - Full screen overlay
+	     ======================================== -->
+	<div id="mobile-menu" class="mobile-menu">
+		<div class="mobile-menu-inner">
+			<nav class="mobile-menu-nav">
+				<a href="#work" class="mobile-menu-link" data-menu-link>
+					<span class="mobile-menu-link-text">Work</span>
+					<span class="mobile-menu-link-number">01</span>
+				</a>
+				<a href="#about" class="mobile-menu-link" data-menu-link>
+					<span class="mobile-menu-link-text">About</span>
+					<span class="mobile-menu-link-number">02</span>
+				</a>
+				<a href="#contact" class="mobile-menu-link" data-menu-link>
+					<span class="mobile-menu-link-text">Services</span>
+					<span class="mobile-menu-link-number">03</span>
+				</a>
+				<a href="#contact" class="mobile-menu-link" data-menu-link>
+					<span class="mobile-menu-link-text">Contact</span>
+					<span class="mobile-menu-link-number">04</span>
+				</a>
+			</nav>
+
+			<div class="mobile-menu-footer">
+				<div class="flex gap-6">
+					<a href="#" class="text-sm text-foreground-muted hover:text-foreground transition-colors">Twitter</a>
+					<a href="#" class="text-sm text-foreground-muted hover:text-foreground transition-colors">LinkedIn</a>
+					<a href="#" class="text-sm text-foreground-muted hover:text-foreground transition-colors">Instagram</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<main>
 		<!-- ========================================
@@ -332,3 +384,64 @@ import Layout from '../layouts/Layout.astro';
 		animation: marquee 20s linear infinite;
 	}
 </style>
+
+<script>
+	// Mobile Menu Toggle
+	const menuToggle = document.getElementById('menu-toggle');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const menuLinks = document.querySelectorAll('[data-menu-link]');
+	const body = document.body;
+
+	let isMenuOpen = false;
+
+	function toggleMenu() {
+		isMenuOpen = !isMenuOpen;
+
+		menuToggle?.classList.toggle('menu-open', isMenuOpen);
+		mobileMenu?.classList.toggle('is-open', isMenuOpen);
+		menuToggle?.setAttribute('aria-expanded', String(isMenuOpen));
+
+		// Prevent body scroll when menu is open
+		if (isMenuOpen) {
+			body.style.overflow = 'hidden';
+		} else {
+			body.style.overflow = '';
+		}
+	}
+
+	function closeMenu() {
+		if (isMenuOpen) {
+			isMenuOpen = false;
+			menuToggle?.classList.remove('menu-open');
+			mobileMenu?.classList.remove('is-open');
+			menuToggle?.setAttribute('aria-expanded', 'false');
+			body.style.overflow = '';
+		}
+	}
+
+	// Toggle menu on button click
+	menuToggle?.addEventListener('click', toggleMenu);
+
+	// Close menu when clicking a link
+	menuLinks.forEach(link => {
+		link.addEventListener('click', () => {
+			// Small delay to allow navigation to start
+			setTimeout(closeMenu, 100);
+		});
+	});
+
+	// Close menu on escape key
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && isMenuOpen) {
+			closeMenu();
+		}
+	});
+
+	// Close menu on resize to desktop
+	const mediaQuery = window.matchMedia('(min-width: 1024px)');
+	mediaQuery.addEventListener('change', (e) => {
+		if (e.matches && isMenuOpen) {
+			closeMenu();
+		}
+	});
+</script>

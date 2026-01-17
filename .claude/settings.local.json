@@ -5,7 +5,8 @@
       "WebFetch(domain:betteroff.studio)",
       "WebSearch",
       "WebFetch(domain:www.cleardesign.ch)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(dir:*)"
     ]
   }
 }
