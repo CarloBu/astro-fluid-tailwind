@@ -1,51 +1,121 @@
 @import "tailwindcss";
 
 /* ============================================
-   FLUID DESIGN SYSTEM - Swiss Style
-   Tailwind v4 Pattern
+   FLUID DESIGN SYSTEM
+   Tailwind v4 + Custom Theme Tokens
+
+   Naming Conventions:
+   - Colors: --color-{name} (primitives), --color-theme-{role} (semantic)
+   - Spacing: --spacing-fluid-{n} → auto-generates p-fluid-*, m-fluid-*, gap-fluid-*, etc.
+   - Radius: --radius-theme-{size} → auto-generates rounded-theme-*
+   - Typography: .text-fluid-{name} (component classes)
    ============================================ */
 
 @theme {
-  /* ----------------------------------------
-     SPACING - Fluid scale
-     ---------------------------------------- */
-  --spacing-fluid-4: clamp(0.25rem, 0.2rem + 0.15vw, 0.5rem);
-  --spacing-fluid-8: clamp(0.5rem, 0.4rem + 0.25vw, 0.75rem);
-  --spacing-fluid-12: clamp(0.75rem, 0.5rem + 0.5vw, 1.25rem);
-  --spacing-fluid-16: clamp(1rem, 0.75rem + 0.75vw, 1.75rem);
-  --spacing-fluid-24: clamp(1.5rem, 1rem + 1.25vw, 2.75rem);
-  --spacing-fluid-32: clamp(2rem, 1rem + 2.5vw, 4rem);
-  --spacing-fluid-48: clamp(3rem, 1.5rem + 4vw, 6rem);
-  --spacing-fluid-64: clamp(4rem, 2rem + 5.5vw, 8rem);
-  --spacing-fluid-96: clamp(6rem, 3rem + 8vw, 12rem);
-  --spacing-fluid-128: clamp(8rem, 4rem + 10vw, 16rem);
-  --spacing-fluid-192: clamp(10rem, 5rem + 14vw, 22rem);
-  --spacing-gutter: clamp(1rem, 0.75rem + 0.75vw, 2rem);
+  /* ============================================
+     COLORS - Two-Tier System
+     ============================================ */
 
-  /* ----------------------------------------
-     RADIUS
+  /* ----- Tier 1: Primitive Palette -----
+     Raw colors from Figma. Use directly: text-gray-900, bg-khaki-100, etc.
      ---------------------------------------- */
-  --radius-fluid-sm: clamp(0.25rem, 0.2rem + 0.15vw, 0.5rem);
-  --radius-fluid-md: clamp(0.5rem, 0.35rem + 0.35vw, 1rem);
-  --radius-fluid-lg: clamp(0.75rem, 0.5rem + 0.5vw, 1.5rem);
 
-  /* ----------------------------------------
-     COLORS
+  /* Neutrals */
+  --color-*: initial; /* Clear all primitive palette defaults */
+  --color-black: #0a0a0a;
+  --color-white: #ffffff;
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
+
+  /* Khaki - warm neutral, earthy tone */
+  --color-khaki-50: #faf8f5;
+  --color-khaki-100: #f5f0e8;
+  --color-khaki-200: #e8dcc8;
+  --color-khaki-300: #d9c9a8;
+  --color-khaki-400: #ccb898;
+  --color-khaki-500: #c3b091;
+  --color-khaki-600: #a89570;
+  --color-khaki-700: #8a7a5a;
+  --color-khaki-800: #6b5f46;
+  --color-khaki-900: #4d4433;
+
+  /* Blue - primary accent */
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #0066cc;
+  --color-blue-600: #0052a3;
+  --color-blue-700: #003d7a;
+  --color-blue-800: #002952;
+  --color-blue-900: #001a33;
+
+  /* ----- Tier 2: Semantic Tokens -----
+     Purpose-based colors for theming. Use: text-theme-fg, bg-theme-bg
+     When switching themes, update these references.
      ---------------------------------------- */
-  --color-background: #ffffff;
-  --color-background-subtle: #f5f5f5;
-  --color-background-muted: #ebebeb;
-  --color-foreground: #0a0a0a;
-  --color-foreground-muted: #525252;
-  --color-foreground-subtle: #a3a3a3;
-  --color-border: #e5e5e5;
-  --color-border-subtle: #f0f0f0;
-  --color-accent: #0a0a0a;
+
+  /* Foreground (text) */
+  --color-theme-fg: var(--color-black);
+  --color-theme-fg-muted: var(--color-gray-600);
+  --color-theme-fg-subtle: var(--color-gray-500);
+  --color-theme-fg-inverse: var(--color-white);
+
+  /* Background */
+  --color-theme-bg: var(--color-white);
+  --color-theme-bg-subtle: var(--color-gray-100);
+  --color-theme-bg-muted: var(--color-gray-200);
+
+  /* Accent & Interactive */
+  --color-theme-accent: var(--color-blue-500);
+  --color-theme-accent-hover: var(--color-blue-600);
+
+  /* Border */
+  --color-theme-border: var(--color-gray-200);
+  --color-theme-border-subtle: var(--color-gray-100);
+
+  /* ============================================
+     SPACING - Fluid Scale (393px → 1440px)
+
+     Tailwind number convention: 4 = 1rem (16px at desktop)
+     Auto-generates: p-fluid-*, m-fluid-*, gap-fluid-*, w-fluid-*, h-fluid-*, etc.
+     ============================================ */
+  --spacing-fluid-2: 0.5rem; /* 8px fixed */
+  --spacing-fluid-3: clamp(0.625rem, 0.578rem + 0.191vw, 0.75rem); /* 10px → 12px */
+  --spacing-fluid-4: clamp(0.75rem, 0.656rem + 0.382vw, 1rem); /* 12px → 16px */
+  --spacing-fluid-6: clamp(1rem, 0.813rem + 0.764vw, 1.5rem); /* 16px → 24px */
+  --spacing-fluid-8: clamp(1.25rem, 0.969rem + 1.146vw, 2rem); /* 20px → 32px */
+  --spacing-fluid-12: clamp(1.5rem, 0.938rem + 2.292vw, 3rem); /* 24px → 48px */
+  --spacing-fluid-16: clamp(2rem, 1.25rem + 3.056vw, 4rem); /* 32px → 64px */
+  --spacing-fluid-24: clamp(3rem, 1.875rem + 4.584vw, 6rem); /* 48px → 96px */
+  --spacing-fluid-32: clamp(4rem, 2.5rem + 6.112vw, 8rem); /* 64px → 128px */
+  --spacing-fluid-48: clamp(6rem, 3.75rem + 9.168vw, 12rem); /* 96px → 192px */
+
+  /* ============================================
+     BORDER RADIUS - Fixed Custom Values
+     Auto-generates: rounded-theme-sm, rounded-theme-md, etc.
+     ============================================ */
+  --radius-*: initial; /* Clear all Tailwind defaults */
+  --radius-theme-none: 0;
+  --radius-theme-sm: 0.375rem; /* 6px */
+  --radius-theme-md: 0.75rem; /* 12px */
+  --radius-theme-lg: 1.25rem; /* 20px */
+  --radius-theme-xl: 1.875rem; /* 30px */
+  --radius-theme-full: 9999px;
 }
 
-/* ----------------------------------------
+/* ============================================
    BASE STYLES
-   ---------------------------------------- */
+   ============================================ */
 
 @layer base {
   html {
@@ -56,32 +126,24 @@
     scrollbar-gutter: stable;
   }
 
-  /* mobile linear scaling */
+  /* Mobile linear scaling below 393px */
   @media (max-width: 393px) {
     html {
-      font-size: 4.07125vw; /* 4.07125vw = 16 / 393 * 100 */
+      font-size: 4.07125vw; /* 16 / 393 * 100 */
     }
   }
-
-  /* Desktop linear scaling */
-
-  /* @media (min-width: 1440px) {
-    html {
-      font-size: 1.111vw; //1.111vw = 16 / 1440 * 100 
-    }
-  } */
 
   body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-    font-size: clamp(1rem, 0.9rem + 0.4vw, 1.375rem);
+    font-size: clamp(1rem, 0.953rem + 0.191vw, 1.125rem); /* 16px → 18px */
     line-height: 1.5;
-    color: var(--color-foreground);
-    background-color: var(--color-background);
+    color: var(--color-theme-fg);
+    background-color: var(--color-theme-bg);
   }
 
   ::selection {
-    background-color: var(--color-accent);
-    color: var(--color-background);
+    background-color: var(--color-theme-fg);
+    color: var(--color-theme-bg);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -93,287 +155,89 @@
   }
 }
 
-/* ----------------------------------------
-   TYPOGRAPHY COMPONENTS
-   ---------------------------------------- */
+/* ============================================
+   TYPOGRAPHY - Fluid Scale (393px → 1440px)
+
+   Visual hierarchy classes (not semantic).
+   Use any class on any HTML element:
+   <h1 class="text-fluid-display">Hero</h1>
+   <h1 class="text-fluid-title">Page Title</h1>
+   ============================================ */
 
 @layer components {
-  /* Display - Hero: 48px → 144px */
-  .text-display {
-    font-size: clamp(3rem, 2rem + 8vw, 9rem);
-    line-height: 0.9;
+  /* Display - Homepage hero, largest text (40px → 96px) */
+  .text-fluid-display {
+    font-size: clamp(2.5rem, 1.186rem + 5.348vw, 6rem);
+    line-height: 1.1;
     font-weight: 700;
     letter-spacing: -0.03em;
   }
 
-  /* Display SM: 32px → 96px */
-  .text-display-sm {
-    font-size: clamp(2rem, 1rem + 5vw, 6rem);
-    line-height: 0.95;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-
-  /* H1: 28px → 80px */
-  .text-h1 {
-    font-size: clamp(1.75rem, 1rem + 4vw, 5rem);
-    line-height: 1;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-
-  /* H2: 24px → 56px */
-  .text-h2 {
-    font-size: clamp(1.5rem, 0.75rem + 3vw, 3.5rem);
-    line-height: 1.05;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-
-  /* H3: 20px → 36px */
-  .text-h3 {
-    font-size: clamp(1.25rem, 0.75rem + 2vw, 2.25rem);
+  /* Title XL - Major page titles, secondary heroes (36px → 78px) */
+  .text-fluid-title-xl {
+    font-size: clamp(2.25rem, 1.265rem + 4.01vw, 4.875rem);
     line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* Title LG - Large section headings (28px → 64px) */
+  .text-fluid-title-lg {
+    font-size: clamp(1.75rem, 0.905rem + 3.44vw, 4rem);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* Title - Section headings (24px → 56px) */
+  .text-fluid-title {
+    font-size: clamp(1.5rem, 0.75rem + 3vw, 3.5rem);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* Title SM - Subsection headings (20px → 36px) */
+  .text-fluid-title-sm {
+    font-size: clamp(1.25rem, 0.75rem + 2vw, 2.25rem);
+    line-height: 1.2;
     font-weight: 600;
     letter-spacing: -0.01em;
   }
 
-  /* H4: 18px → 28px */
-  .text-h4 {
+  /* Subtitle - Minor headings (18px → 28px) */
+  .text-fluid-subtitle {
     font-size: clamp(1.125rem, 0.875rem + 1vw, 1.75rem);
-    line-height: 1.25;
+    line-height: 1.3;
     font-weight: 600;
     letter-spacing: -0.01em;
   }
 
-  /* Body: 16px → 22px */
-  .text-body {
-    font-size: clamp(1rem, 0.9rem + 0.4vw, 1.375rem);
-    line-height: 1.5;
-  }
-
-  /* Body SM: 14px → 16px */
-  .text-body-sm {
-    font-size: clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
+  /* Body LG - Large body text (18px → 24px) */
+  .text-fluid-body-lg {
+    font-size: clamp(1.125rem, 0.984rem + 0.573vw, 1.5rem);
     line-height: 1.4;
   }
 
-  /* Label/Caption */
-  .label {
+  /* Body - Standard body text (16px → 18px) */
+  .text-fluid-body {
+    font-size: clamp(1rem, 0.953rem + 0.191vw, 1.125rem);
+    line-height: 1.5;
+  }
+
+  /* Body SM - Small text (13px fixed) */
+  .text-fluid-body-sm {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  /* Caption - Labels, captions, fine print (11px → 14px) */
+  .text-fluid-caption {
     font-size: clamp(0.6875rem, 0.6rem + 0.25vw, 0.875rem);
     line-height: 1.3;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
   }
-
-  /* Stack layouts */
-  .stack-xs {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-fluid-8);
-  }
-
-  .stack-sm {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-fluid-16);
-  }
-
-  .stack-md {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-fluid-24);
-  }
-
-  .stack-lg {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-fluid-48);
-  }
-
-  .stack-xl {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-fluid-64);
-  }
 }
 
-/* ----------------------------------------
-   UTILITIES
-   ---------------------------------------- */
-
-@utility gutter {
-  padding-inline: var(--spacing-gutter);
-}
-
-@utility section-py {
-  padding-block: var(--spacing-fluid-96);
-}
-
-@utility section-py-lg {
-  padding-block: var(--spacing-fluid-128);
-}
-
-@utility section-py-xl {
-  padding-block: var(--spacing-fluid-192);
-}
-
-@utility link-underline {
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: currentColor;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  &:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-}
-
-/* ----------------------------------------
-   MOBILE MENU - Full screen overlay
-   ---------------------------------------- */
-
-@layer components {
-  /* Menu hamburger icon */
-  .menu-icon {
-    width: 1.5rem;
-    height: 0.75rem;
-    position: relative;
-  }
-
-  .menu-line {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-foreground);
-    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1),
-                top 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  .menu-line-1 {
-    top: 0;
-  }
-
-  .menu-line-2 {
-    top: 100%;
-  }
-
-  /* Menu open state - X icon */
-  .menu-open .menu-line-1 {
-    top: 50%;
-    transform: rotate(45deg);
-  }
-
-  .menu-open .menu-line-2 {
-    top: 50%;
-    transform: rotate(-45deg);
-  }
-
-  /* Mobile menu overlay */
-  .mobile-menu {
-    position: fixed;
-    inset: 0;
-    z-index: 40;
-    background-color: var(--color-background);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1),
-                visibility 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  .mobile-menu.is-open {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .mobile-menu-inner {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 6rem 1.5rem 2rem;
-  }
-
-  .mobile-menu-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .mobile-menu-link {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--color-border);
-    opacity: 0;
-    transform: translateY(2rem);
-    transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1),
-                transform 0.6s cubic-bezier(0.19, 1, 0.22, 1),
-                color 0.3s ease;
-  }
-
-  .mobile-menu-link:first-child {
-    border-top: 1px solid var(--color-border);
-  }
-
-  .mobile-menu.is-open .mobile-menu-link {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Staggered animation delays */
-  .mobile-menu.is-open .mobile-menu-link:nth-child(1) { transition-delay: 0.1s; }
-  .mobile-menu.is-open .mobile-menu-link:nth-child(2) { transition-delay: 0.15s; }
-  .mobile-menu.is-open .mobile-menu-link:nth-child(3) { transition-delay: 0.2s; }
-  .mobile-menu.is-open .mobile-menu-link:nth-child(4) { transition-delay: 0.25s; }
-  .mobile-menu.is-open .mobile-menu-link:nth-child(5) { transition-delay: 0.3s; }
-
-  .mobile-menu-link-text {
-    font-size: clamp(2.5rem, 2rem + 4vw, 5rem);
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    color: var(--color-foreground);
-    transition: color 0.3s ease;
-  }
-
-  .mobile-menu-link:hover .mobile-menu-link-text {
-    color: var(--color-foreground-muted);
-  }
-
-  .mobile-menu-link-number {
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    color: var(--color-foreground-subtle);
-  }
-
-  .mobile-menu-footer {
-    margin-top: auto;
-    padding-top: 2rem;
-    opacity: 0;
-    transform: translateY(1rem);
-    transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.35s,
-                transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.35s;
-  }
-
-  .mobile-menu.is-open .mobile-menu-footer {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}

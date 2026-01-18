@@ -1,0 +1,273 @@
+---
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 py-fluid-4 px-fluid-8 bg-theme-bg/80 backdrop-blur-sm border-b border-theme-border/50">
+	<nav class="flex items-center justify-between">
+		<!-- Logo -->
+		<a href="/" class="text-fluid-body font-bold text-theme-fg">
+			Studio
+		</a>
+
+		<!-- Desktop Navigation (visible at lg: 1024px+) -->
+		<div class="hidden lg:flex items-center gap-fluid-8">
+			<a href="#work" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">
+				Work
+			</a>
+			<a href="#about" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">
+				About
+			</a>
+			<a href="#contact" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">
+				Services
+			</a>
+			<a href="#contact" class="text-fluid-body-sm text-theme-fg font-medium hover:text-theme-accent transition-colors">
+				Let's talk
+			</a>
+		</div>
+
+		<!-- Mobile Menu Button (visible below lg) -->
+		<button
+			id="menu-toggle"
+			class="lg:hidden w-10 h-10 flex items-center justify-center"
+			aria-label="Toggle menu"
+			aria-expanded="false"
+		>
+			<div class="menu-icon">
+				<span class="menu-line menu-line-1"></span>
+				<span class="menu-line menu-line-2"></span>
+			</div>
+		</button>
+	</nav>
+</header>
+
+<!-- ========================================
+     MOBILE MENU - Full screen overlay
+     ======================================== -->
+<div id="mobile-menu" class="mobile-menu">
+	<div class="mobile-menu-inner">
+		<nav class="mobile-menu-nav">
+			<a href="#work" class="mobile-menu-link" data-menu-link>
+				<span class="mobile-menu-link-text">Work</span>
+				<span class="mobile-menu-link-number">01</span>
+			</a>
+			<a href="#about" class="mobile-menu-link" data-menu-link>
+				<span class="mobile-menu-link-text">About</span>
+				<span class="mobile-menu-link-number">02</span>
+			</a>
+			<a href="#contact" class="mobile-menu-link" data-menu-link>
+				<span class="mobile-menu-link-text">Services</span>
+				<span class="mobile-menu-link-number">03</span>
+			</a>
+			<a href="#contact" class="mobile-menu-link" data-menu-link>
+				<span class="mobile-menu-link-text">Contact</span>
+				<span class="mobile-menu-link-number">04</span>
+			</a>
+		</nav>
+
+		<div class="mobile-menu-footer">
+			<div class="flex gap-fluid-6">
+				<a href="#" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">Twitter</a>
+				<a href="#" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">LinkedIn</a>
+				<a href="#" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">Instagram</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	/* ========================================
+	   MOBILE MENU STYLES
+	   Component-scoped styles for Header
+	   ======================================== */
+
+	/* Menu hamburger icon */
+	.menu-icon {
+		width: 1.5rem;
+		height: 0.75rem;
+		position: relative;
+	}
+
+	.menu-line {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background-color: var(--color-theme-fg);
+		transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+					top 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+	}
+
+	.menu-line-1 {
+		top: 0;
+	}
+
+	.menu-line-2 {
+		top: 100%;
+	}
+
+	/* Menu open state - X icon */
+	:global(.menu-open) .menu-line-1 {
+		top: 50%;
+		transform: rotate(45deg);
+	}
+
+	:global(.menu-open) .menu-line-2 {
+		top: 50%;
+		transform: rotate(-45deg);
+	}
+
+	/* Mobile menu overlay */
+	.mobile-menu {
+		position: fixed;
+		inset: 0;
+		z-index: 40;
+		background-color: var(--color-theme-bg);
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+					visibility 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+	}
+
+	.mobile-menu:global(.is-open) {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.mobile-menu-inner {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 6rem 1.5rem 2rem;
+	}
+
+	.mobile-menu-nav {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.mobile-menu-link {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		padding: 1rem 0;
+		border-bottom: 1px solid var(--color-theme-border);
+		opacity: 0;
+		transform: translateY(2rem);
+		transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1),
+					transform 0.6s cubic-bezier(0.19, 1, 0.22, 1),
+					color 0.3s ease;
+	}
+
+	.mobile-menu-link:first-child {
+		border-top: 1px solid var(--color-theme-border);
+	}
+
+	.mobile-menu:global(.is-open) .mobile-menu-link {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	/* Staggered animation delays */
+	.mobile-menu:global(.is-open) .mobile-menu-link:nth-child(1) { transition-delay: 0.1s; }
+	.mobile-menu:global(.is-open) .mobile-menu-link:nth-child(2) { transition-delay: 0.15s; }
+	.mobile-menu:global(.is-open) .mobile-menu-link:nth-child(3) { transition-delay: 0.2s; }
+	.mobile-menu:global(.is-open) .mobile-menu-link:nth-child(4) { transition-delay: 0.25s; }
+	.mobile-menu:global(.is-open) .mobile-menu-link:nth-child(5) { transition-delay: 0.3s; }
+
+	.mobile-menu-link-text {
+		font-size: clamp(2.5rem, 1.186rem + 5.348vw, 6rem);
+		line-height: 1.1;
+		font-weight: 700;
+		letter-spacing: -0.03em;
+		text-transform: uppercase;
+		color: var(--color-theme-fg);
+		transition: color 0.3s ease;
+	}
+
+	.mobile-menu-link:hover .mobile-menu-link-text {
+		color: var(--color-theme-fg-muted);
+	}
+
+	.mobile-menu-link-number {
+		font-size: 0.75rem;
+		font-weight: 500;
+		letter-spacing: 0.1em;
+		color: var(--color-theme-fg-subtle);
+	}
+
+	.mobile-menu-footer {
+		margin-top: auto;
+		padding-top: 2rem;
+		opacity: 0;
+		transform: translateY(1rem);
+		transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.35s,
+					transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.35s;
+	}
+
+	.mobile-menu:global(.is-open) .mobile-menu-footer {
+		opacity: 1;
+		transform: translateY(0);
+	}
+</style>
+
+<script>
+	// Mobile Menu Toggle
+	const menuToggle = document.getElementById('menu-toggle');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const menuLinks = document.querySelectorAll('[data-menu-link]');
+	const body = document.body;
+
+	let isMenuOpen = false;
+
+	function toggleMenu() {
+		isMenuOpen = !isMenuOpen;
+
+		menuToggle?.classList.toggle('menu-open', isMenuOpen);
+		mobileMenu?.classList.toggle('is-open', isMenuOpen);
+		menuToggle?.setAttribute('aria-expanded', String(isMenuOpen));
+
+		// Prevent body scroll when menu is open
+		if (isMenuOpen) {
+			body.style.overflow = 'hidden';
+		} else {
+			body.style.overflow = '';
+		}
+	}
+
+	function closeMenu() {
+		if (isMenuOpen) {
+			isMenuOpen = false;
+			menuToggle?.classList.remove('menu-open');
+			mobileMenu?.classList.remove('is-open');
+			menuToggle?.setAttribute('aria-expanded', 'false');
+			body.style.overflow = '';
+		}
+	}
+
+	// Toggle menu on button click
+	menuToggle?.addEventListener('click', toggleMenu);
+
+	// Close menu when clicking a link
+	menuLinks.forEach(link => {
+		link.addEventListener('click', () => {
+			// Small delay to allow navigation to start
+			setTimeout(closeMenu, 100);
+		});
+	});
+
+	// Close menu on escape key
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && isMenuOpen) {
+			closeMenu();
+		}
+	});
+
+	// Close menu on resize to desktop
+	const mediaQuery = window.matchMedia('(min-width: 1024px)');
+	mediaQuery.addEventListener('change', (e) => {
+		if (e.matches && isMenuOpen) {
+			closeMenu();
+		}
+	});
+</script>

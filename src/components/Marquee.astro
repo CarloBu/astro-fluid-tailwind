@@ -1,0 +1,61 @@
+---
+---
+
+<!-- ========================================
+     MARQUEE - Horizontal scroll text
+     ======================================== -->
+<div class="border-y border-theme-border overflow-hidden py-fluid-8">
+	<div class="flex whitespace-nowrap animate-marquee">
+		<span class="text-fluid-title-lg font-bold tracking-tight px-fluid-12">
+			Strategy
+		</span>
+		<span class="text-fluid-title-lg text-theme-fg-muted px-fluid-12">
+			&mdash;
+		</span>
+		<span class="text-fluid-title-lg font-bold tracking-tight px-fluid-12">
+			Design
+		</span>
+		<span class="text-fluid-title-lg text-theme-fg-muted px-fluid-12">
+			&mdash;
+		</span>
+		<span class="text-fluid-title-lg font-bold tracking-tight px-fluid-12">
+			Development
+		</span>
+		<span class="text-fluid-title-lg text-theme-fg-muted px-fluid-12">
+			&mdash;
+		</span>
+		<span class="text-fluid-title-lg font-bold tracking-tight px-fluid-12">
+			Strategy
+		</span>
+		<span class="text-fluid-title-lg text-theme-fg-muted px-fluid-12">
+			&mdash;
+		</span>
+		<span class="text-fluid-title-lg font-bold tracking-tight px-fluid-12">
+			Design
+		</span>
+		<span class="text-fluid-title-lg text-theme-fg-muted px-fluid-12">
+			&mdash;
+		</span>
+		<span class="text-fluid-title-lg font-bold tracking-tight px-fluid-12">
+			Development
+		</span>
+		<span class="text-fluid-title-lg text-theme-fg-muted px-fluid-12">
+			&mdash;
+		</span>
+	</div>
+</div>
+
+<style>
+	@keyframes marquee {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+
+	.animate-marquee {
+		animation: marquee 20s linear infinite;
+	}
+</style>
