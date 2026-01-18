@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ============================================
-   FLUID DESIGN SYSTEM
+   WLF FLUID DESIGN SYSTEM
    Tailwind v4 + Custom Theme Tokens
 
    Naming Conventions:
@@ -12,9 +12,8 @@
    ============================================ */
 
 @theme {
-  /* ============================================
-     COLORS - Two-Tier System
-     ============================================ */
+
+  /* COLORS - Two-Tier System */
 
   /* ----- Tier 1: Primitive Palette -----
      Raw colors from Figma. Use directly: text-gray-900, bg-khaki-100, etc.
@@ -24,6 +23,7 @@
   --color-*: initial; /* Clear all primitive palette defaults */
   --color-black: #0a0a0a;
   --color-white: #ffffff;
+  --color-nav-bg: #252525;
   --color-gray-50: #fafafa;
   --color-gray-100: #f5f5f5;
   --color-gray-200: #e5e5e5;
@@ -47,21 +47,8 @@
   --color-khaki-800: #6b5f46;
   --color-khaki-900: #4d4433;
 
-  /* Blue - primary accent */
-  --color-blue-50: #eff6ff;
-  --color-blue-100: #dbeafe;
-  --color-blue-200: #bfdbfe;
-  --color-blue-300: #93c5fd;
-  --color-blue-400: #60a5fa;
-  --color-blue-500: #0066cc;
-  --color-blue-600: #0052a3;
-  --color-blue-700: #003d7a;
-  --color-blue-800: #002952;
-  --color-blue-900: #001a33;
-
   /* ----- Tier 2: Semantic Tokens -----
      Purpose-based colors for theming. Use: text-theme-fg, bg-theme-bg
-     When switching themes, update these references.
      ---------------------------------------- */
 
   /* Foreground (text) */
@@ -76,8 +63,8 @@
   --color-theme-bg-muted: var(--color-gray-200);
 
   /* Accent & Interactive */
-  --color-theme-accent: var(--color-blue-500);
-  --color-theme-accent-hover: var(--color-blue-600);
+  --color-theme-accent: var(--color-khaki-500);
+  --color-theme-accent-hover: var(--color-khaki-600);
 
   /* Border */
   --color-theme-border: var(--color-gray-200);
@@ -110,6 +97,7 @@
   --radius-theme-md: 0.75rem; /* 12px */
   --radius-theme-lg: 1.25rem; /* 20px */
   --radius-theme-xl: 1.875rem; /* 30px */
+  --radius-theme-pill: 2.5rem; /* 40px */
   --radius-theme-full: 9999px;
 }
 
@@ -133,8 +121,16 @@
     }
   }
 
+    /* If needed, Desktop linear scaling */
+
+  /* @media (min-width: 1440px) {
+    html {
+      font-size: 1.111vw; //1.111vw = 16 / 1440 * 100 
+    }
+  } */
+
   body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
     font-size: clamp(1rem, 0.953rem + 0.191vw, 1.125rem); /* 16px → 18px */
     line-height: 1.5;
     color: var(--color-theme-fg);

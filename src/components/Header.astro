@@ -1,121 +1,110 @@
 ---
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 py-fluid-4 px-fluid-8 bg-theme-bg/80 backdrop-blur-sm border-b border-theme-border/50">
-	<nav class="flex items-center justify-between">
+<header class="fixed top-0 left-0 right-0 z-50 py-fluid-6 px-fluid-8">
+	<nav class="flex items-center justify-between gap-fluid-4">
 		<!-- Logo -->
-		<a href="/" class="text-fluid-body font-bold text-theme-fg">
-			Studio
+		<a href="/" class="text-theme-fg hover:opacity-80 transition-opacity shrink-0" aria-label="Home">
+			<svg xmlns="http://www.w3.org/2000/svg" width="125" height="16" fill="none" viewBox="0 0 125 16" class="w-auto h-4">
+				<path fill="currentColor" fill-rule="evenodd" d="M65.515 6.047v9.202c0 .196-.16.354-.358.354H62.5a.357.357 0 0 1-.36-.354V7.143c0-2.556-1.332-3.985-3.58-3.985-2.168 0-3.983 1.413-3.983 4.016v8.075c0 .196-.16.354-.358.354h-2.656a.356.356 0 0 1-.358-.354V7.143c0-2.556-1.333-3.985-3.582-3.985-2.167 0-3.983 1.413-3.983 4.016v8.075c0 .196-.16.354-.358.354h-2.656a.356.356 0 0 1-.358-.354V.75c0-.196.16-.354.358-.354h2.624c.198 0 .359.158.359.354v1.502C44.846.46 46.757 0 48.332 0c2.148 0 3.934.866 5.033 2.307.145.19.434.163.578-.029C55.312.466 57.49 0 59.267 0c3.662 0 6.248 2.492 6.248 6.047M28.036 16c3.597 0 7.13-2 7.13-6.842V.75a.356.356 0 0 0-.358-.354h-2.656a.356.356 0 0 0-.358.354v8.107c0 2.937-1.654 4.015-3.758 4.015s-3.758-1.078-3.758-4.015V.751a.356.356 0 0 0-.359-.354h-2.655a.356.356 0 0 0-.358.354v8.407C20.906 14 24.422 16 28.036 16M11.4 6.681h-7.41a.356.356 0 0 1-.359-.355V.876a.356.356 0 0 0-.358-.354H.359A.356.356 0 0 0 0 .876v14.373a.357.357 0 0 0 .359.355h2.913a.356.356 0 0 0 .358-.354v-4.816a.356.356 0 0 1-.358-.355h7.41a.357.357 0 0 1 .359.355v4.816a.356.356 0 0 0 .358.354h2.913a.356.356 0 0 0 .358-.354V.876a.356.356 0 0 0-.358-.354h-2.913a.356.356 0 0 0-.358.355v5.45a.355.355 0 0 1-.358.354M83.709.39H82.3c-.08 0-.14.03-.19.08s-.08.12-.08.19v1.57a5.7 5.7 0 0 0-2-1.62C79.23.22 78.29 0 77.19 0c-2.15 0-4.07.83-5.46 2.25-1.38 1.42-2.23 3.42-2.23 5.74 0 4.66 3.39 8 7.69 8 1.1 0 2.04-.21 2.84-.6.81-.39 1.47-.94 2-1.62v1.56c0 .15.12.27.27.27h2.81c.08 0 .15-.03.2-.08.04-.05.07-.11.07-.19V.66c0-.15-.12-.27-.27-.27zm-1.6 8.83c-.47 2.15-2.16 3.65-4.51 3.65-2.9 0-4.65-2.21-4.65-4.88 0-2.66 1.75-4.87 4.65-4.87 2.25 0 3.9 1.38 4.44 3.38.13.47.2.97.2 1.49 0 .43-.05.84-.13 1.23M92.998 8c0 2.666 1.751 4.873 4.642 4.873 2.778 0 4.64-2.095 4.64-4.873s-1.862-4.873-4.64-4.873c-2.89 0-4.642 2.206-4.642 4.873m12.072 7.603h-2.64a.35.35 0 0 1-.252-.103.354.354 0 0 1-.106-.251v-1.471c-1.06 1.349-2.65 2.222-4.834 2.222-4.304 0-7.692-3.35-7.692-8s3.388-8 7.692-8c2.184 0 3.775.889 4.834 2.238V.751c0-.196.16-.354.359-.354h2.639c.198 0 .359.158.359.354V15.25c0 .195-.16.354-.36.354zM125 15.249V6.047C125 2.492 122.414 0 118.753 0c-1.573 0-3.485.46-4.722 2.252V.75a.356.356 0 0 0-.358-.354h-2.624a.356.356 0 0 0-.358.354v14.499q.001.071.028.136a.36.36 0 0 0 .33.218h2.655c.199 0 .36-.158.36-.354V7.174c0-2.603 1.814-4.016 3.983-4.016 2.247 0 3.58 1.429 3.58 3.985v8.106q.001.071.028.136a.36.36 0 0 0 .331.218h2.655a.356.356 0 0 0 .359-.354" clip-rule="evenodd" />
+			</svg>
 		</a>
 
-		<!-- Desktop Navigation (visible at lg: 1024px+) -->
-		<div class="hidden lg:flex items-center gap-fluid-8">
-			<a href="#work" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">
-				Work
-			</a>
-			<a href="#about" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">
-				About
-			</a>
-			<a href="#contact" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">
-				Services
-			</a>
-			<a href="#contact" class="text-fluid-body-sm text-theme-fg font-medium hover:text-theme-accent transition-colors">
-				Let's talk
-			</a>
-		</div>
-
-		<!-- Mobile Menu Button (visible below lg) -->
-		<button
-			id="menu-toggle"
-			class="lg:hidden w-10 h-10 flex items-center justify-center"
-			aria-label="Toggle menu"
-			aria-expanded="false"
-		>
-			<div class="menu-icon">
-				<span class="menu-line menu-line-1"></span>
-				<span class="menu-line menu-line-2"></span>
+		<!-- Right Side Container -->
+		<div class="flex items-center gap-fluid-4">
+			<!-- Desktop Navigation Pill -->
+			<div id="nav-desktop-container" class="hidden lg:flex items-center bg-white border border-theme-border/50 p-1 rounded-theme-pill shadow-sm relative overflow-hidden" data-name="Menu Expanded">
+				<!-- Sliding Background Pill -->
+				<div id="nav-pill" class="absolute bg-nav-bg h-[calc(100%-8px)] rounded-theme-pill z-0 opacity-0"></div>
+				
+				<!-- Nav Items -->
+				<a href="/" class="nav-pill-link active" data-nav-item>Home</a>
+				<a href="/about" class="nav-pill-link" data-nav-item>About</a>
+				<a href="/learn-hub" class="nav-pill-link" data-nav-item>Learn Hub</a>
+				<a href="/work" class="nav-pill-link" data-nav-item>Work</a>
+				<a href="/services" class="nav-pill-link" data-nav-item>Services</a>
+				<a href="/pricing" class="nav-pill-link" data-nav-item>Pricing</a>
 			</div>
-		</button>
+
+			<!-- Mobile Menu Toggle Button -->
+			<button
+				id="menu-toggle"
+				class="h-12 px-fluid-8 flex lg:hidden items-center justify-center bg-black border-none rounded-theme-pill text-fluid-body-sm font-bold text-white transition-colors"
+				aria-label="Toggle menu"
+				aria-expanded="false"
+			>
+				<span id="menu-toggle-text">Menu</span>
+			</button>
+		</div>
 	</nav>
 </header>
 
-<!-- ========================================
-     MOBILE MENU - Full screen overlay
-     ======================================== -->
+<!-- MOBILE MENU -->
 <div id="mobile-menu" class="mobile-menu">
 	<div class="mobile-menu-inner">
 		<nav class="mobile-menu-nav">
-			<a href="#work" class="mobile-menu-link" data-menu-link>
-				<span class="mobile-menu-link-text">Work</span>
-				<span class="mobile-menu-link-number">01</span>
+			<a href="/" class="mobile-menu-link group" data-menu-link>
+				<span class="mobile-menu-link-text">Home</span>
 			</a>
-			<a href="#about" class="mobile-menu-link" data-menu-link>
+			<a href="/about" class="mobile-menu-link group" data-menu-link>
 				<span class="mobile-menu-link-text">About</span>
-				<span class="mobile-menu-link-number">02</span>
 			</a>
-			<a href="#contact" class="mobile-menu-link" data-menu-link>
+			<a href="/learn-hub" class="mobile-menu-link group" data-menu-link>
+				<span class="mobile-menu-link-text">Learn Hub</span>
+			</a>
+			<a href="/work" class="mobile-menu-link group" data-menu-link>
+				<span class="mobile-menu-link-text">Work</span>
+			</a>
+			<a href="/services" class="mobile-menu-link group" data-menu-link>
 				<span class="mobile-menu-link-text">Services</span>
-				<span class="mobile-menu-link-number">03</span>
 			</a>
-			<a href="#contact" class="mobile-menu-link" data-menu-link>
-				<span class="mobile-menu-link-text">Contact</span>
-				<span class="mobile-menu-link-number">04</span>
+			<a href="/pricing" class="mobile-menu-link group" data-menu-link>
+				<span class="mobile-menu-link-text">Pricing</span>
 			</a>
 		</nav>
-
-		<div class="mobile-menu-footer">
-			<div class="flex gap-fluid-6">
-				<a href="#" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">Twitter</a>
-				<a href="#" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">LinkedIn</a>
-				<a href="#" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">Instagram</a>
-			</div>
-		</div>
 	</div>
 </div>
 
 <style>
-	/* ========================================
-	   MOBILE MENU STYLES
-	   Component-scoped styles for Header
-	   ======================================== */
-
-	/* Menu hamburger icon */
-	.menu-icon {
-		width: 1.5rem;
-		height: 0.75rem;
+	.nav-pill-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 3rem; /* 48px */
+		padding: 0 var(--spacing-fluid-8);
+		border-radius: var(--radius-theme-pill);
+		font-size: 1rem;
+		font-weight: 700;
+		color: var(--color-nav-bg);
+		transition: color 0.3s ease;
+		white-space: nowrap;
 		position: relative;
+		z-index: 10;
+		background: transparent !important;
 	}
 
-	.menu-line {
-		position: absolute;
+	.nav-pill-link.active {
+		color: var(--color-white);
+	}
+
+	/* When hovering the container, the active link should revert to black */
+	#nav-desktop-container:hover .nav-pill-link.active {
+		color: var(--color-nav-bg);
+	}
+
+	/* The link being hovered (where the pill is) must always be white */
+	.nav-pill-link:global(.is-hovered) {
+		color: var(--color-white) !important;
+	}
+
+	#nav-pill {
+		top: 4px;
 		left: 0;
-		width: 100%;
-		height: 2px;
-		background-color: var(--color-theme-fg);
-		transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1),
-					top 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+		pointer-events: none;
+		background-color: var(--color-nav-bg);
 	}
 
-	.menu-line-1 {
-		top: 0;
-	}
-
-	.menu-line-2 {
-		top: 100%;
-	}
-
-	/* Menu open state - X icon */
-	:global(.menu-open) .menu-line-1 {
-		top: 50%;
-		transform: rotate(45deg);
-	}
-
-	:global(.menu-open) .menu-line-2 {
-		top: 50%;
-		transform: rotate(-45deg);
-	}
-
-	/* Mobile menu overlay */
+	/* Mobile Menu */
 	.mobile-menu {
 		position: fixed;
 		inset: 0;
@@ -123,8 +112,9 @@
 		background-color: var(--color-theme-bg);
 		opacity: 0;
 		visibility: hidden;
-		transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1),
-					visibility 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+		transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+		display: flex;
+		align-items: center;
 	}
 
 	.mobile-menu:global(.is-open) {
@@ -133,34 +123,31 @@
 	}
 
 	.mobile-menu-inner {
-		height: 100%;
+		width: 100%;
+		max-width: 1440px;
+		margin: 0 auto;
+		padding: 6rem var(--spacing-fluid-8) 2rem;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		padding: 6rem 1.5rem 2rem;
+		height: 100%;
 	}
 
 	.mobile-menu-nav {
 		display: flex;
 		flex-direction: column;
-		gap: 0;
+		gap: 0.5rem;
+		align-items: flex-end;
 	}
 
 	.mobile-menu-link {
-		display: flex;
-		align-items: baseline;
-		justify-content: space-between;
-		padding: 1rem 0;
-		border-bottom: 1px solid var(--color-theme-border);
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		padding: 0.5rem 0;
 		opacity: 0;
-		transform: translateY(2rem);
-		transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1),
-					transform 0.6s cubic-bezier(0.19, 1, 0.22, 1),
-					color 0.3s ease;
-	}
-
-	.mobile-menu-link:first-child {
-		border-top: 1px solid var(--color-theme-border);
+		transform: translateY(20px);
+		transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+		text-align: right;
 	}
 
 	.mobile-menu:global(.is-open) .mobile-menu-link {
@@ -168,106 +155,123 @@
 		transform: translateY(0);
 	}
 
-	/* Staggered animation delays */
+	.mobile-menu-link-text {
+		font-size: clamp(2.5rem, 2rem + 5vw, 6rem);
+		font-weight: 700;
+		line-height: 1;
+		text-transform: uppercase;
+		color: var(--color-theme-fg);
+		letter-spacing: -0.02em;
+	}
+
+	/* Staggered animation */
 	.mobile-menu:global(.is-open) .mobile-menu-link:nth-child(1) { transition-delay: 0.1s; }
 	.mobile-menu:global(.is-open) .mobile-menu-link:nth-child(2) { transition-delay: 0.15s; }
 	.mobile-menu:global(.is-open) .mobile-menu-link:nth-child(3) { transition-delay: 0.2s; }
 	.mobile-menu:global(.is-open) .mobile-menu-link:nth-child(4) { transition-delay: 0.25s; }
 	.mobile-menu:global(.is-open) .mobile-menu-link:nth-child(5) { transition-delay: 0.3s; }
-
-	.mobile-menu-link-text {
-		font-size: clamp(2.5rem, 1.186rem + 5.348vw, 6rem);
-		line-height: 1.1;
-		font-weight: 700;
-		letter-spacing: -0.03em;
-		text-transform: uppercase;
-		color: var(--color-theme-fg);
-		transition: color 0.3s ease;
-	}
-
-	.mobile-menu-link:hover .mobile-menu-link-text {
-		color: var(--color-theme-fg-muted);
-	}
-
-	.mobile-menu-link-number {
-		font-size: 0.75rem;
-		font-weight: 500;
-		letter-spacing: 0.1em;
-		color: var(--color-theme-fg-subtle);
-	}
-
-	.mobile-menu-footer {
-		margin-top: auto;
-		padding-top: 2rem;
-		opacity: 0;
-		transform: translateY(1rem);
-		transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.35s,
-					transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.35s;
-	}
-
-	.mobile-menu:global(.is-open) .mobile-menu-footer {
-		opacity: 1;
-		transform: translateY(0);
-	}
+	.mobile-menu:global(.is-open) .mobile-menu-link:nth-child(6) { transition-delay: 0.35s; }
 </style>
 
 <script>
-	// Mobile Menu Toggle
+	import { gsap } from 'gsap';
+
+	// Mobile Menu logic
 	const menuToggle = document.getElementById('menu-toggle');
+	const menuToggleText = document.getElementById('menu-toggle-text');
 	const mobileMenu = document.getElementById('mobile-menu');
-	const menuLinks = document.querySelectorAll('[data-menu-link]');
+	const mobileLinks = document.querySelectorAll('[data-menu-link]');
 	const body = document.body;
 
 	let isMenuOpen = false;
 
 	function toggleMenu() {
 		isMenuOpen = !isMenuOpen;
-
-		menuToggle?.classList.toggle('menu-open', isMenuOpen);
+		menuToggle?.classList.toggle('is-open', isMenuOpen);
 		mobileMenu?.classList.toggle('is-open', isMenuOpen);
-		menuToggle?.setAttribute('aria-expanded', String(isMenuOpen));
-
-		// Prevent body scroll when menu is open
-		if (isMenuOpen) {
-			body.style.overflow = 'hidden';
-		} else {
-			body.style.overflow = '';
+		
+		if (menuToggleText) {
+			menuToggleText.textContent = isMenuOpen ? 'Close' : 'Menu';
 		}
+		
+		body.style.overflow = isMenuOpen ? 'hidden' : '';
 	}
 
 	function closeMenu() {
 		if (isMenuOpen) {
 			isMenuOpen = false;
-			menuToggle?.classList.remove('menu-open');
 			mobileMenu?.classList.remove('is-open');
-			menuToggle?.setAttribute('aria-expanded', 'false');
+			if (menuToggleText) menuToggleText.textContent = 'Menu';
 			body.style.overflow = '';
 		}
 	}
 
-	// Toggle menu on button click
 	menuToggle?.addEventListener('click', toggleMenu);
+	mobileLinks.forEach(link => {
+		link.addEventListener('click', () => setTimeout(closeMenu, 100));
+	});
 
-	// Close menu when clicking a link
-	menuLinks.forEach(link => {
-		link.addEventListener('click', () => {
-			// Small delay to allow navigation to start
-			setTimeout(closeMenu, 100);
+	// Desktop GSAP Nav Pill logic
+	const navContainer = document.getElementById('nav-desktop-container');
+	const navPill = document.getElementById('nav-pill');
+	const navLinks = document.querySelectorAll('[data-nav-item]');
+	const activeLink = document.querySelector('.nav-pill-link.active') as HTMLElement;
+
+	if (navPill && navLinks.length > 0) {
+		const initPill = () => {
+			if (activeLink && window.innerWidth >= 1024) {
+				gsap.set(navPill, {
+					x: activeLink.offsetLeft,
+					width: activeLink.offsetWidth,
+					opacity: 1
+				});
+			} else {
+				gsap.set(navPill, { opacity: 0 });
+			}
+		};
+
+		initPill();
+
+		navLinks.forEach(link => {
+			const item = link as HTMLElement;
+			item.addEventListener('mouseenter', () => {
+				if (window.innerWidth < 1024) return;
+				navLinks.forEach(l => l.classList.remove('is-hovered'));
+				item.classList.add('is-hovered');
+
+				gsap.to(navPill, {
+					x: item.offsetLeft,
+					width: item.offsetWidth,
+					duration: 0.4,
+					ease: "power3.out",
+					opacity: 1
+				});
+			});
 		});
-	});
 
-	// Close menu on escape key
+		navContainer?.addEventListener('mouseleave', () => {
+			if (window.innerWidth < 1024) return;
+			navLinks.forEach(l => l.classList.remove('is-hovered'));
+			
+			if (activeLink) {
+				gsap.to(navPill, {
+					x: activeLink.offsetLeft,
+					width: activeLink.offsetWidth,
+					duration: 0.4,
+					ease: "power3.out"
+				});
+			}
+		});
+
+		window.addEventListener('resize', initPill);
+	}
+
+	// Global close handlers
 	document.addEventListener('keydown', (e) => {
-		if (e.key === 'Escape' && isMenuOpen) {
-			closeMenu();
-		}
+		if (e.key === 'Escape' && isMenuOpen) closeMenu();
 	});
 
-	// Close menu on resize to desktop
-	const mediaQuery = window.matchMedia('(min-width: 1024px)');
-	mediaQuery.addEventListener('change', (e) => {
-		if (e.matches && isMenuOpen) {
-			closeMenu();
-		}
+	window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
+		if (e.matches && isMenuOpen) closeMenu();
 	});
 </script>
