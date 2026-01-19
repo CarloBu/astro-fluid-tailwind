@@ -1,0 +1,36 @@
+---
+import { Picture } from "astro:assets";
+import bridgeImage from "../assets/Bridge-section.jpg";
+---
+
+<section class="flex flex-col items-start px-layout-margin pt-0 relative mb-section-space">
+  <div class="aspect-4/5 md:aspect-1377/850 flex flex-col items-end p-fluid-12 relative self-stretch w-full bg-theme-bg overflow-hidden">
+    <Picture
+      src={bridgeImage}
+      formats={['avif', 'webp']}
+      alt="Luxury villa with infinity pool overlooking the sea"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+
+    <div class="relative z-10 flex flex-col w-full max-w-lg items-end gap-fluid-4">
+      <p class="text-fluid-body text-theme-fg text-right">
+        <span class="leading-relaxed">
+          “Someone's sitting in the shade today
+          <br />
+          because someone planted a tree
+          <br />
+        </span>
+        <span class="italic font-light">
+          a long time ago.
+        </span>
+        <span class="leading-relaxed">
+          ”
+        </span>
+      </p>
+
+      <div class="text-fluid-body-sm font-light text-theme-fg text-right">
+        Warren Buffett
+      </div>
+    </div>
+  </div>
+</section>

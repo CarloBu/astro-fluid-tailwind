@@ -1,25 +1,84 @@
 ---
+import { Picture } from "astro:assets";
+import logoWapFooter from "../assets/logo-wap-footer.svg";
+import courtyardImage from "../assets/footer-image.jpg";
 ---
 
-<!-- ========================================
-     FOOTER - Minimal
-     ======================================== -->
-<footer class="py-fluid-16 px-fluid-8 border-t border-theme-border">
-	<div class="flex flex-col md:flex-row justify-between items-center gap-fluid-8">
-		<span class="text-fluid-body-sm text-theme-fg-muted">
-			&copy; 2025 Studio. All rights reserved.
-		</span>
+<footer class="bg-black text-white px-layout-margin pt-header-offset pb-fluid-8 flex flex-col lg:h-screen lg:min-h-[800px] relative">
+	
+	<div class="relative z-10 flex flex-col grow">
+		
+		<!-- Main Content Grid -->
+		<div class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[1fr_2fr_auto] gap-x-layout-gutter gap-y-fluid-12 lg:gap-y-layout-gutter grow">
+			
+			<!-- Row 1, Col 1: Logo -->
+			<div class="flex flex-col justify-start h-full">
+				<div class="w-auto h-full flex items-start">
+					<img 
+						src={logoWapFooter.src} 
+						alt="Astro + Payload" 
+						class="h-80 lg:-mb-48 w-auto object-contain object-left"
+					/>
+				</div>
+			</div>
 
-		<div class="flex items-center gap-fluid-8">
-			<a href="#" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">
-				Twitter
-			</a>
-			<a href="#" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">
-				LinkedIn
-			</a>
-			<a href="#" class="text-fluid-body-sm text-theme-fg-muted hover:text-theme-fg transition-colors">
-				Instagram
-			</a>
+			<!-- Row 1, Col 2: Contacts -->
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-layout-gutter">
+				<div class="flex flex-col gap-fluid-2">
+					<span class="text-fluid-caption text-gray-500">EMAIL</span>
+					<a href="mailto:hello@astro+payload.com" class="text-fluid-body-lg hover:text-gray-400 transition-colors">
+						hello@astro+payload.com
+					</a>
+				</div>
+				<div class="flex flex-col gap-fluid-2">
+					<span class="text-fluid-caption text-gray-500">PHONE</span>
+					<p class="text-fluid-body-lg">781-664-9475</p>
+				</div>
+				<div class="flex flex-col gap-fluid-2">
+					<span class="text-fluid-caption text-gray-500">LOCATION</span>
+					<p class="text-fluid-body">
+						39 Astro St. Payload,<br />
+						Manchester 01890
+					</p>
+				</div>
+				<div class="flex flex-col gap-fluid-2">
+					<span class="text-fluid-caption text-gray-500">OPEN HOURS</span>
+					<p class="text-fluid-body">08:30 AM - 06:00 PM</p>
+				</div>
+			</div>
+
+			<!-- Row 2, Col 1: Social Links -->
+			<div class="flex items-end pb-fluid-8 lg:pb-0">
+				<div class="flex gap-fluid-8 lg:gap-fluid-16">
+					<a href="#" class="text-fluid-body hover:text-gray-400 transition-colors">Facebook</a>
+					<a href="#" class="text-fluid-body hover:text-gray-400 transition-colors">Instagram</a>
+					<a href="#" class="text-fluid-body hover:text-gray-400 transition-colors">LinkedIn</a>
+				</div>
+			</div>
+
+			<!-- Row 2, Col 2: Image -->
+			<div class="relative w-full h-full min-h-[300px] lg:min-h-0">
+				<Picture
+					src={courtyardImage}
+					formats={['avif', 'webp']}
+					alt="Courtyard View"
+					class="absolute inset-0 w-full h-full object-cover"
+				/>
+			</div>
+
+			<!-- Row 3: Footer Bottom (Full width across columns) -->
+			<div class="lg:col-span-2 flex flex-col sm:flex-row justify-between items-start sm:items-center pt-fluid-8 gap-fluid-4 mt-auto">
+				<!-- Copyright -->
+				<p class="text-fluid-body-sm text-gray-500">
+					© 2026 Astro + Payload, All Rights Reserved
+				</p>
+				
+				<!-- Legal Links -->
+				<div class="flex gap-fluid-8">
+					<a href="#" class="text-fluid-body-sm text-gray-500 hover:text-white transition-colors">Privacy Policy</a>
+					<a href="#" class="text-fluid-body-sm text-gray-500 hover:text-white transition-colors">Terms & Conditions</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </footer>

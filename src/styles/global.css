@@ -63,13 +63,27 @@
   --color-theme-bg-muted: var(--color-gray-200);
 
   /* Accent & Interactive */
-  --color-theme-accent: var(--color-khaki-500);
-  --color-theme-accent-hover: var(--color-khaki-600);
+  --color-theme-accent: var(--color-khaki-600);
+  --color-theme-accent-hover: var(--color-khaki-700);
 
   /* Border */
   --color-theme-border: var(--color-gray-200);
   --color-theme-border-subtle: var(--color-gray-100);
 
+  /* TYPOGRAPHY - Font Families */
+  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-body: var(--font-sans);
+
+
+  /* ============================================
+    SEMANTIC SPACING
+    Mapping design concepts to the fluid scale.
+    ============================================ */
+    --spacing-layout-margin: var(--spacing-fluid-8);
+    --spacing-layout-gutter: var(--spacing-fluid-4);
+    --spacing-section-space: var(--spacing-fluid-32);
+    --spacing-header-offset: var(--spacing-fluid-24);
+    
   /* ============================================
      SPACING - Fluid Scale (393px → 1440px)
 
@@ -99,6 +113,7 @@
   --radius-theme-xl: 1.875rem; /* 30px */
   --radius-theme-pill: 2.5rem; /* 40px */
   --radius-theme-full: 9999px;
+
 }
 
 /* ============================================
@@ -130,7 +145,7 @@
   } */
 
   body {
-    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    font-family: var(--font-sans);
     font-size: clamp(1rem, 0.953rem + 0.191vw, 1.125rem); /* 16px → 18px */
     line-height: 1.5;
     color: var(--color-theme-fg);
@@ -165,15 +180,15 @@
   .text-fluid-display {
     font-size: clamp(2.5rem, 1.186rem + 5.348vw, 6rem);
     line-height: 1.1;
-    font-weight: 700;
+    font-weight: 300;
     letter-spacing: -0.03em;
   }
 
-  /* Title XL - Major page titles, secondary heroes (36px → 78px) */
+  /* Title XL - Major page titles, secondary heroes (32px → 78px, scaling adjusted) */
   .text-fluid-title-xl {
-    font-size: clamp(2.25rem, 1.265rem + 4.01vw, 4.875rem);
+    font-size: clamp(2rem, 1rem + 4vw, 4.875rem);
     line-height: 1.15;
-    font-weight: 700;
+    font-weight: 300;
     letter-spacing: -0.02em;
   }
 
@@ -181,7 +196,7 @@
   .text-fluid-title-lg {
     font-size: clamp(1.75rem, 0.905rem + 3.44vw, 4rem);
     line-height: 1.1;
-    font-weight: 700;
+    font-weight: 300;
     letter-spacing: -0.02em;
   }
 
@@ -189,7 +204,7 @@
   .text-fluid-title {
     font-size: clamp(1.5rem, 0.75rem + 3vw, 3.5rem);
     line-height: 1.1;
-    font-weight: 700;
+    font-weight: 300;
     letter-spacing: -0.02em;
   }
 
@@ -197,7 +212,7 @@
   .text-fluid-title-sm {
     font-size: clamp(1.25rem, 0.75rem + 2vw, 2.25rem);
     line-height: 1.2;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.01em;
   }
 
@@ -205,7 +220,7 @@
   .text-fluid-subtitle {
     font-size: clamp(1.125rem, 0.875rem + 1vw, 1.75rem);
     line-height: 1.3;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: -0.01em;
   }
 
@@ -213,11 +228,12 @@
   .text-fluid-body-lg {
     font-size: clamp(1.125rem, 0.984rem + 0.573vw, 1.5rem);
     line-height: 1.4;
+    font-weight: 400;
   }
 
-  /* Body - Standard body text (16px → 18px) */
+  /* Body - Standard body text (14px → 16px) */
   .text-fluid-body {
-    font-size: clamp(1rem, 0.953rem + 0.191vw, 1.125rem);
+    font-size: clamp(0.875rem, 0.806rem + 0.255vw, 1rem);
     line-height: 1.5;
   }
 

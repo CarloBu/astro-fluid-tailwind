@@ -1,47 +1,123 @@
 ---
+export const heroContent = {
+  heading: "Building Wealth Through Property",
+  headingHighlight: "Wealth",
+  description:
+    "We offer personalized guidance to help you achieve your financial goals, whether you're a first-time homebuyer, a seasoned investor, or somewhere in between. Our experienced team is dedicated to delivering exceptional service through thoughtful strategy, attention to detail, and a strong commitment to integrity at every step of your real estate journey.",
+};
+
+export const servicesContent = [
+  {
+    number: "01",
+    title: "Buying",
+    description:
+      "Expert guidance through every step of your property purchase journey, from initial consultation to final completion: with clarity, care, and confidence throughout.",
+    features: [
+      "Market Analysis",
+      "Property Search",
+      "Negotiation",
+      "Legal Support",
+    ],
+    exploreCta: "EXPLORE BUYING",
+  },
+  {
+    number: "02",
+    title: "Selling",
+    description:
+      "Strategic marketing and professional presentation to maximize your property's market value and ensure optimal results.",
+    features: ["Valuation", "Marketing", "Viewings", "Completion"],
+    exploreCta: "EXPLORE SELLING",
+  },
+  {
+    number: "03",
+    title: "Renting",
+    description:
+      "Comprehensive rental management services designed to optimize investment returns while minimizing administrative burden.",
+    features: [
+      "Tenant Sourcing",
+      "Property Management",
+      "Maintenance",
+      "Legal Compliance",
+    ],
+    exploreCta: "EXPLORE RENTING",
+  },
+  {
+    number: "04",
+    title: "Managing",
+    description:
+      "Professional portfolio management and strategic investment advice to build and maintain your property investment portfolio.",
+    features: [
+      "Portfolio Analysis",
+      "Investment Strategy",
+      "Market Research",
+      "Performance Tracking",
+    ],
+    exploreCta: "EXPLORE MANAGING",
+  },
+];
 ---
 
-<!-- ========================================
-     SERVICES - What we do
-     ======================================== -->
-<section class="py-fluid-32 bg-theme-bg-subtle px-fluid-8">
-	<div class="grid grid-cols-1 lg:grid-cols-12 gap-fluid-24">
-		<!-- Left: Header -->
-		<div class="lg:col-span-4 flex flex-col gap-fluid-8">
-			<span class="text-fluid-caption text-theme-fg-muted">Services</span>
-			<h2 class="text-fluid-title-lg font-bold tracking-tight">
-				What we do
-			</h2>
-		</div>
+<section class="px-layout-margin mb-section-space bg-theme-bg flex flex-col gap-fluid-16">
+  <!-- Top Content: Heading and Description -->
+  <div class="flex flex-col lg:flex-row lg:min-h-[400px] items-start gap-fluid-12">
+    <h2 class="text-fluid-title-lg font-light tracking-tight lg:flex-1 text-theme-fg">
+      {heroContent.heading.split(heroContent.headingHighlight)[0]}
+      <span class="italic font-light">{heroContent.headingHighlight}</span>
+      {heroContent.heading.split(heroContent.headingHighlight)[1]}
+    </h2>
+    <div class="flex flex-col justify-end lg:flex-1 lg:self-stretch lg:items-end">
+      <p class="text-fluid-body text-theme-fg-muted lg:max-w-md lg:text-right">
+        {heroContent.description}
+      </p>
+    </div>
+  </div>
 
-		<!-- Right: Services list -->
-		<div class="lg:col-span-8">
-			<ul class="divide-y divide-theme-border">
-				<li class="py-fluid-12 flex flex-col md:flex-row md:items-center gap-fluid-6">
-					<span class="text-fluid-title-sm font-semibold flex-1">Strategy</span>
-					<p class="text-fluid-body-sm text-theme-fg-muted md:max-w-sm">
-						Research, positioning, and roadmap to guide every decision.
-					</p>
-				</li>
-				<li class="py-fluid-12 flex flex-col md:flex-row md:items-center gap-fluid-6">
-					<span class="text-fluid-title-sm font-semibold flex-1">Design</span>
-					<p class="text-fluid-body-sm text-theme-fg-muted md:max-w-sm">
-						Brand identity, UI/UX, and design systems built for scale.
-					</p>
-				</li>
-				<li class="py-fluid-12 flex flex-col md:flex-row md:items-center gap-fluid-6">
-					<span class="text-fluid-title-sm font-semibold flex-1">Development</span>
-					<p class="text-fluid-body-sm text-theme-fg-muted md:max-w-sm">
-						Lightning-fast websites and applications that perform.
-					</p>
-				</li>
-				<li class="py-fluid-12 flex flex-col md:flex-row md:items-center gap-fluid-6">
-					<span class="text-fluid-title-sm font-semibold flex-1">Motion</span>
-					<p class="text-fluid-body-sm text-theme-fg-muted md:max-w-sm">
-						Animation and interaction design that delights.
-					</p>
-				</li>
-			</ul>
-		</div>
-	</div>
+  <!-- Services List -->
+  <div class="flex flex-col w-full">
+    {servicesContent.map((service) => (
+      <div class="flex flex-col items-start gap-fluid-6 w-full py-fluid-8 border-t border-theme-fg">
+        <div class="flex flex-col lg:flex-row items-start gap-fluid-8 w-full">
+          <!-- Left Column: Number and Title -->
+          <div class="flex-1 min-w-0">
+            <h3 class="text-fluid-subtitle text-theme-fg font-normal">
+              <span class="inline-block w-fluid-12 font-light">{service.number}</span>
+              {service.title}
+            </h3>
+          </div>
+          
+          <!-- Right Column: Details -->
+          <div class="flex-1 flex flex-col items-start gap-fluid-12">
+            <!-- Description -->
+            <p class="text-fluid-body text-theme-fg-muted w-full leading-relaxed">
+              {service.description}
+            </p>
+            
+            <!-- Features List -->
+            <div class="text-fluid-body text-theme-fg-muted w-full whitespace-pre-line leading-[1.8] opacity-80">
+              {service.features.join('\n')}
+            </div>
+            
+            <!-- CTAs -->
+            <div class="flex justify-between items-center w-full flex-wrap gap-fluid-4">
+              <!-- Explore CTA -->
+              <button class="flex flex-col justify-center items-center gap-0 group cursor-pointer">
+                <span class="text-fluid-caption text-theme-fg font-normal">
+                  {service.exploreCta}
+                </span>
+                <div class="w-full h-[0.5px] bg-theme-fg group-hover:bg-theme-accent transition-colors" />
+              </button>
+              
+              <!-- Consult CTA -->
+              <button class="flex flex-col justify-center items-start gap-0 group cursor-pointer">
+                <span class="text-fluid-caption text-theme-fg font-normal">
+                  CONSULT
+                </span>
+                <div class="w-full h-[0.5px] bg-theme-fg group-hover:bg-theme-accent transition-colors" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
 </section>

@@ -1,0 +1,153 @@
+---
+import { Picture } from "astro:assets";
+import property1 from "../assets/property1.jpg";
+import property1Interior from "../assets/property1-interior.jpg";
+import property2 from "../assets/property2.jpg";
+import property2Interior from "../assets/property2-interior.jpg";
+import property3 from "../assets/property3.jpg";
+import property3Interior from "../assets/property3-interior.jpg";
+---
+
+<section class="px-layout-margin py-section-space bg-theme-bg overflow-hidden flex flex-col gap-fluid-24">
+  <!-- Title Container -->
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-fluid-8">
+    <h2 class="text-fluid-title-lg font-light text-theme-fg tracking-tight leading-tight max-w-2xl">
+      Discover our <span class="italic">best-selling</span> properties
+    </h2>
+    
+    <div class="flex flex-col items-start md:items-end gap-fluid-8 max-w-xl">
+      <p class="text-fluid-body-lg text-theme-fg-muted md:text-right">
+        From luxurious beachfront villas to cozy suburban homes, we have something for everyone. And with our streamlined process and easy-to-use tools, finding and buying your dream home has never been easier.
+      </p>
+      
+      <a href="/properties" class="flex items-center gap-fluid-4 text-theme-fg hover:text-theme-accent transition-colors group">
+        <span class="text-fluid-body font-medium uppercase tracking-wider">Explore all properties</span>
+        <svg class="w-6 h-3 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M25 5.60995L19.3901 11.2199M25 5.60995L19.3901 0M25 5.60995H0" stroke="currentColor" stroke-width="1.2835"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Properties Content -->
+  <div class="flex flex-col gap-fluid-4">
+    
+    <!-- Property 1 -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-layout-gutter">
+      <div class="col-span-1 h-full">
+        <Picture
+          src={property1Interior}
+          formats={['avif', 'webp']}
+          alt="Property interior"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      
+      <div class="col-span-1 flex flex-col justify-between items-start py-fluid-2">
+        <div class="flex flex-col gap-fluid-2">
+          <span class="text-fluid-body-lg font-medium text-theme-fg">$8,950,000</span>
+          <div class="flex flex-col text-theme-fg-muted text-fluid-body">
+            <span class="font-medium">Seabreeze Estate</span>
+            <span>4280 Ocean Vista Drive, Malibu, USA</span>
+            <span class="mt-fluid-2">4 Beds · 5 Baths · 5,200 sq ft</span>
+          </div>
+        </div>
+        
+        <a href="/property-details" class="flex items-center gap-fluid-4 text-theme-fg hover:text-theme-accent transition-colors group mt-fluid-6 md:mt-0">
+          <span class="text-fluid-body font-medium uppercase tracking-wider">View details</span>
+          <svg class="w-6 h-3 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 5.60995L19.3901 11.2199M25 5.60995L19.3901 0M25 5.60995H0" stroke="currentColor" stroke-width="1.2835"/>
+          </svg>
+        </a>
+      </div>
+      
+      <div class="col-span-1 md:col-span-2 md:aspect-auto h-full">
+        <Picture
+          src={property1}
+          formats={['avif', 'webp']}
+          alt="Seabreeze Estate"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+
+    <!-- Property 2 -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-layout-gutter">
+      <div class="col-span-1 md:col-span-2  md:aspect-auto h-full order-2 md:order-1">
+        <Picture
+          src={property2}
+          formats={['avif', 'webp']}
+          alt="Luxury Estate"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div class="col-span-1 flex flex-col justify-between items-start py-fluid-2 order-1 md:order-2">
+        <div class="flex flex-col gap-fluid-2">
+          <span class="text-fluid-body-lg font-medium text-theme-fg">$8,950,000</span>
+          <div class="flex flex-col text-theme-fg-muted text-fluid-body">
+            <span class="font-medium">Seabreeze Estate</span>
+            <span>4280 Ocean Vista Drive, Malibu, USA</span>
+            <span class="mt-fluid-2">4 Beds · 5 Baths · 5,200 sq ft</span>
+          </div>
+        </div>
+        
+        <a href="#" class="flex items-center gap-fluid-4 text-theme-fg hover:text-theme-accent transition-colors group mt-fluid-6 md:mt-0">
+          <span class="text-fluid-body font-medium uppercase tracking-wider">View details</span>
+          <svg class="w-6 h-3 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 5.60995L19.3901 11.2199M25 5.60995L19.3901 0M25 5.60995H0" stroke="currentColor" stroke-width="1.2835"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="col-span-1 h-full order-3">
+        <Picture
+          src={property2Interior}
+          formats={['avif', 'webp']}
+          alt="Property interior"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+
+    <!-- Property 3 -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-layout-gutter">
+      <div class="col-span-1 flex flex-col justify-between items-start py-fluid-2">
+        <div class="flex flex-col gap-fluid-2">
+          <span class="text-fluid-body font-medium text-theme-fg">$8,950,000</span>
+          <div class="flex flex-col text-theme-fg-muted text-fluid-body">
+            <span class="font-medium">Seabreeze Estate</span>
+            <span>4280 Ocean Vista Drive, Malibu, USA</span>
+            <span class="mt-fluid-2">4 Beds · 5 Baths · 5,200 sq ft</span>
+          </div>
+        </div>
+        
+        <a href="#" class="flex items-center gap-fluid-4 text-theme-fg hover:text-theme-accent transition-colors group mt-fluid-6 md:mt-0">
+          <span class="text-fluid-body font-medium uppercase tracking-wider">View details</span>
+          <svg class="w-6 h-3 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 5.60995L19.3901 11.2199M25 5.60995L19.3901 0M25 5.60995H0" stroke="currentColor" stroke-width="1.2835"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="col-span-1 h-full">
+        <Picture
+          src={property3Interior}
+          formats={['avif', 'webp']}
+          alt="Property interior"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div class="col-span-1 md:col-span-2  md:aspect-auto h-full">
+        <Picture
+          src={property3}
+          formats={['avif', 'webp']}
+          alt="Seabreeze Estate"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>

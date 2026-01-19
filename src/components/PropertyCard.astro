@@ -1,0 +1,53 @@
+---
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  image: ImageMetadata;
+  price: string;
+  title: string;
+  location: string;
+  beds: number;
+  baths: number;
+  sqft: string;
+  href?: string;
+}
+
+const { 
+  image, 
+  price, 
+  title, 
+  location, 
+  beds, 
+  baths, 
+  sqft, 
+  href = "/property-details" 
+} = Astro.props;
+---
+
+<a href={href} class="group flex flex-col gap-fluid-6">
+  <div class="aspect-square overflow-hidden bg-theme-bg-subtle">
+    <Picture
+      src={image}
+      formats={['avif', 'webp']}
+      alt={title}
+      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+    />
+  </div>
+  
+  <div class="flex flex-col gap-fluid-4">
+    <div class="flex justify-between items-start border-b border-theme-border pb-fluid-4">
+      <div class="flex flex-col gap-fluid-1">
+        <h3 class="text-fluid-subtitle font-light uppercase tracking-tight">{title}</h3>
+        <p class="text-fluid-caption text-theme-fg-muted font-light">{location}</p>
+      </div>
+      <span class="text-fluid-subtitle font-light">{price}</span>
+    </div>
+    
+    <div class="flex gap-fluid-6 text-fluid-caption text-theme-fg-muted font-light uppercase tracking-wider">
+      <span>{beds} Beds</span>
+      <span>{baths} Baths</span>
+      <span>{sqft} Sq Ft</span>
+    </div>
+  </div>
+</a>

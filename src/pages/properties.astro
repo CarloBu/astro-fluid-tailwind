@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PropertyCard from '../components/PropertyCard.astro';
+
+// Importing assets for mock data
+import property1 from "../assets/property1.jpg";
+import property2 from "../assets/property2.jpg";
+import property3 from "../assets/property3.jpg";
+import property1Interior from "../assets/property1-interior.jpg";
+import property2Interior from "../assets/property2-interior.jpg";
+import property3Interior from "../assets/property3-interior.jpg";
+
+const properties = [
+  {
+    title: "Seabreeze Estate",
+    price: "$8,950,000",
+    location: "Malibu, USA",
+    beds: 4,
+    baths: 5,
+    sqft: "5,200",
+    image: property1,
+    href: "/property-details"
+  },
+  {
+    title: "Mountain Retreat",
+    price: "$4,250,000",
+    location: "Aspen, USA",
+    beds: 3,
+    baths: 3,
+    sqft: "3,800",
+    image: property2,
+    href: "/property-details"
+  },
+  {
+    title: "Urban Loft",
+    price: "$2,100,000",
+    location: "New York, USA",
+    beds: 2,
+    baths: 2,
+    sqft: "2,200",
+    image: property3,
+    href: "/property-details"
+  },
+  {
+    title: "Coastal Villa",
+    price: "$6,700,000",
+    location: "Amalfi, Italy",
+    beds: 5,
+    baths: 4,
+    sqft: "4,500",
+    image: property1Interior,
+    href: "/property-details"
+  },
+  {
+    title: "Desert Oasis",
+    price: "$3,850,000",
+    location: "Palm Springs, USA",
+    beds: 4,
+    baths: 4,
+    sqft: "4,000",
+    image: property2Interior,
+    href: "/property-details"
+  },
+  {
+    title: "Modern Sanctuary",
+    price: "$5,400,000",
+    location: "Austin, USA",
+    beds: 4,
+    baths: 3,
+    sqft: "3,600",
+    image: property3Interior,
+    href: "/property-details"
+  }
+];
+---
+
+<Layout title="Properties | Swiss Design Real Estate">
+  <main class="pt-header-offset">
+    <!-- Header Section -->
+    <section class="px-layout-margin py-fluid-16 md:py-fluid-24 border-b border-theme-border">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-fluid-8">
+        <div class="max-w-3xl">
+          <span class="text-fluid-caption text-theme-fg-muted mb-fluid-4 block">Our Portfolio</span>
+          <h1 class="text-fluid-display font-light uppercase tracking-tight leading-[0.9]">
+            Available<br/><span class="italic font-light">Properties</span>
+          </h1>
+        </div>
+        <p class="text-fluid-body-lg text-theme-fg-muted max-w-md md:text-right">
+          A curated collection of architectural masterpieces, each embodying the precision and clarity of Swiss modernism.
+        </p>
+      </div>
+    </section>
+
+    <!-- Properties Grid -->
+    <section class="px-layout-margin py-section-space">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-layout-gutter gap-y-fluid-16">
+        {properties.map((property) => (
+          <PropertyCard {...property} />
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,13 +1,31 @@
 ---
+import arrowDown from "../assets/arrow-long-down.svg?url";
 ---
 
-<!-- ========================================
-     HERO - Simple Centered Design
-     ======================================== -->
-<section class="min-h-screen flex flex-col justify-end items-center px-fluid-8 pb-fluid-48 bg-[#D8CCB5]">
-	<div class="max-w-[1220px] w-full text-center">
-		<h1 class="text-fluid-display font-extrabold text-nav-bg leading-[1.1]">
-			Astro Payload live Preview Page Builder Starter
+<section class="min-h-screen flex flex-col justify-between px-layout-margin pt-header-offset pb-fluid-8 bg-theme-bg relative overflow-hidden">
+	<!-- Top row: Right-aligned subtext -->
+	<div class="flex justify-end w-full">
+		<p class="text-fluid-body-lg text-right max-w-md text-theme-fg ">
+			Whether it’s buying, selling, renting or managing a new existing
+			portfolio, <br class="hidden md:block" />
+			The Astro Payload has your back.
+		</p>
+	</div>
+
+	<!-- Bottom row: Large headline and decorative element -->
+	<div class="flex flex-col md:flex-row md:items-end justify-between w-full gap-fluid-12">
+		<h1 class="text-fluid-title-xl font-light text-theme-fg  tracking-tight ">
+			<span class="block">Helping You</span>
+			<span class="block">Build <span class="italic font-light">Generational Wealth</span></span>
+			<span class="block">Through Real Estate</span>
 		</h1>
+
+		<div class="flex justify-end md:mb-fluid-4">
+			<img
+				src={arrowDown}
+				class="w-fluid-6 h-fluid-24 object-contain"
+				alt="Scroll down"
+			/>
+		</div>
 	</div>
 </section>

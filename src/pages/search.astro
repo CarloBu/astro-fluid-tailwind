@@ -1,0 +1,171 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PropertyCard from '../components/PropertyCard.astro';
+
+// Importing assets for mock data
+import property1 from "../assets/property1.jpg";
+import property2 from "../assets/property2.jpg";
+import property3 from "../assets/property3.jpg";
+import property1Interior from "../assets/property1-interior.jpg";
+import property2Interior from "../assets/property2-interior.jpg";
+import property3Interior from "../assets/property3-interior.jpg";
+
+const searchResults = [
+  {
+    title: "Seabreeze Estate",
+    price: "$8,950,000",
+    location: "Malibu, USA",
+    beds: 4,
+    baths: 5,
+    sqft: "5,200",
+    image: property1
+  },
+  {
+    title: "Mountain Retreat",
+    price: "$4,250,000",
+    location: "Aspen, USA",
+    beds: 3,
+    baths: 3,
+    sqft: "3,800",
+    image: property2
+  },
+  {
+    title: "Urban Loft",
+    price: "$2,100,000",
+    location: "New York, USA",
+    beds: 2,
+    baths: 2,
+    sqft: "2,200",
+    image: property3
+  },
+  {
+    title: "Coastal Villa",
+    price: "$6,700,000",
+    location: "Amalfi, Italy",
+    beds: 5,
+    baths: 4,
+    sqft: "4,500",
+    image: property1Interior
+  },
+  {
+    title: "Desert Oasis",
+    price: "$3,850,000",
+    location: "Palm Springs, USA",
+    beds: 4,
+    baths: 4,
+    sqft: "4,000",
+    image: property2Interior
+  },
+  {
+    title: "Modern Sanctuary",
+    price: "$5,400,000",
+    location: "Austin, USA",
+    beds: 4,
+    baths: 3,
+    sqft: "3,600",
+    image: property3Interior
+  },
+  {
+    title: "Skyline Penthouse",
+    price: "$12,000,000",
+    location: "Chicago, USA",
+    beds: 3,
+    baths: 4,
+    sqft: "4,200",
+    image: property1
+  },
+  {
+    title: "Lakeside Cabin",
+    price: "$1,850,000",
+    location: "Lake Tahoe, USA",
+    beds: 3,
+    baths: 2,
+    sqft: "2,400",
+    image: property2
+  }
+];
+---
+
+<Layout title="Search Properties | Swiss Design Real Estate">
+  <main class="pt-header-offset">
+    <!-- Search Interface Section -->
+    <section class="px-layout-margin py-fluid-16 border-b border-theme-border">
+      <div class="flex flex-col gap-fluid-12">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-fluid-8">
+          <div class="max-w-3xl">
+            <span class="text-fluid-caption text-theme-fg-muted mb-fluid-4 block">Refine your search</span>
+          </div>
+          </div>
+        </div>
+
+        <!-- Search Interface -->
+        <div class="relative group">
+          <input 
+            type="text" 
+            placeholder="Search location, neighborhood, property type..." 
+            class="w-full bg-transparent text-fluid-title-lg font-light outline-none border-b border-theme-border pb-fluid-8 placeholder:text-theme-fg-muted/20 focus:placeholder:text-theme-fg-muted/40 focus:border-theme-fg transition-all duration-700 ease-out"
+          />
+          <div class="absolute right-0 top-[calc(50%-1rem)] -translate-y-1/2 pointer-events-none">
+            <svg class="w-8 h-8 md:w-12 md:h-12 text-theme-fg-muted/30 group-focus-within:text-theme-fg transition-colors duration-700 ease-out" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="0.75"/>
+              <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="0.75"/>
+            </svg>
+          </div>
+        </div>
+        
+        <!-- Filter Mockup -->
+        <div class="flex flex-wrap gap-fluid-4 items-center border-t border-theme-border pt-fluid-8">
+          <div class="group cursor-pointer">
+            <span class="text-fluid-caption text-theme-fg-muted group-hover:text-theme-fg transition-colors">Location</span>
+            <div class="flex items-center gap-fluid-2 mt-fluid-1">
+              <span class="text-fluid-body font-light">All Locations</span>
+              <svg class="w-3 h-3" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 4L6 9L11 4" stroke="currentColor" stroke-width="1"/>
+              </svg>
+            </div>
+          </div>
+          
+          <div class="w-px h-10 bg-theme-border mx-fluid-4 hidden md:block"></div>
+
+          <div class="group cursor-pointer">
+            <span class="text-fluid-caption text-theme-fg-muted group-hover:text-theme-fg transition-colors">Price Range</span>
+            <div class="flex items-center gap-fluid-2 mt-fluid-1">
+              <span class="text-fluid-body font-light">Any Price</span>
+              <svg class="w-3 h-3" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 4L6 9L11 4" stroke="currentColor" stroke-width="1"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="w-px h-10 bg-theme-border mx-fluid-4 hidden md:block"></div>
+
+          <div class="group cursor-pointer">
+            <span class="text-fluid-caption text-theme-fg-muted group-hover:text-theme-fg transition-colors">Property Type</span>
+            <div class="flex items-center gap-fluid-2 mt-fluid-1">
+              <span class="text-fluid-body font-light">All Types</span>
+              <svg class="w-3 h-3" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 4L6 9L11 4" stroke="currentColor" stroke-width="1"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="ml-auto flex items-center gap-fluid-4">
+            <span class="text-fluid-caption text-theme-fg-muted">Sort by</span>
+            <div class="px-fluid-6 py-fluid-2 border border-theme-border rounded-full text-fluid-caption hover:border-theme-fg transition-colors cursor-pointer">
+              Newest
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search Results Grid (4 Columns) -->
+    <section class="px-layout-margin py-section-space">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-layout-gutter gap-y-fluid-12">
+        {searchResults.map((property) => (
+          <PropertyCard {...property} />
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

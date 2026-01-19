@@ -1,26 +1,136 @@
 ---
+/**
+ * ContactCTA Component
+ * 
+ * A CTA section featuring a contact form, styled using the fluid design system.
+ * Based on provided React logic and design specifications.
+ */
+
+export const ctaContent = {
+  heading: "Ready to Take the First Step?",
+  headingHighlight: "First",
+  description:
+    "Reach out to our real estate experts to share your investment goals. Whether you're just getting started or growing your portfolio, we'll provide thoughtful insights and personalized guidance to help you build lasting value.",
+  form: {
+    namePlaceholder: "Name",
+    emailPlaceholder: "Email",
+    messagePlaceholder: "Message",
+    submitButton: "SUBMIT",
+  },
+};
 ---
 
-<!-- ========================================
-     CTA - Contact section
-     ======================================== -->
-<section id="contact" class="py-fluid-48 px-fluid-8">
-	<div class="flex flex-col gap-fluid-16">
-		<span class="text-fluid-caption text-theme-fg-muted">Get in touch</span>
+<section class="py-section-space px-layout-margin bg-theme-bg overflow-hidden">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-layout-gutter items-start">
+    
+    <!-- Left Column: Title -->
+    <div class="flex flex-col w-full">
+      <h2 class="text-fluid-title-lg font-light text-theme-fg tracking-tight lg:max-w-[644px]">
+        {ctaContent.heading.split(ctaContent.headingHighlight)[0]}
+        <br class="hidden lg:block" />
+        <span class="italic font-light">{ctaContent.headingHighlight}</span>
+        {ctaContent.heading.split(ctaContent.headingHighlight)[1]}
+      </h2>
+    </div>
 
-		<h2 class="text-fluid-display font-bold uppercase">
-			<span class="block">Let's work</span>
-			<span class="block">together</span>
-		</h2>
+    <!-- Right Column: Subtitle and Form -->
+    <div class="flex flex-col gap-fluid-12 lg:gap-fluid-16 w-fullv lg:pt-fluid-48">
+      <!-- Subtitle -->
+      <p class="text-fluid-body text-theme-fg-muted leading-relaxed max-w-xl">
+        {ctaContent.description}
+      </p>
 
-		<a
-			href="mailto:hello@studio.com"
-			class="inline-flex items-center gap-fluid-4 text-fluid-title-sm font-medium text-theme-fg hover:opacity-60 transition-opacity group"
-		>
-			<span>hello@studio.com</span>
-			<svg class="w-8 h-8 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-			</svg>
-		</a>
-	</div>
+      <!-- Form -->
+      <form id="contact-cta-form" class="flex flex-col gap-fluid-8 w-full">
+        <!-- Name Field -->
+        <div class="flex flex-col  w-full">
+          <label for="cta-name" class="text-fluid-body text-theme-fg-muted pb-fluid-2">
+            {ctaContent.form.namePlaceholder}
+          </label>
+          <input
+            id="cta-name"
+            type="text"
+            name="name"
+            class="w-full bg-transparent border-none outline-none text-fluid-body text-theme-fg pb-fluid-2"
+            required
+          />
+          <div class="w-full h-px bg-theme-fg" />
+        </div>
+
+        <!-- Email Field -->
+        <div class="flex flex-col w-full">
+          <label for="cta-email" class="text-fluid-body text-theme-fg-muted pb-fluid-2">
+            {ctaContent.form.emailPlaceholder}
+          </label>
+          <input
+            id="cta-email"
+            type="email"
+            name="email"
+            class="w-full bg-transparent border-none outline-none text-fluid-body text-theme-fg pb-fluid-2"
+            required
+          />
+          <div class="w-full h-px bg-theme-fg" />
+        </div>
+
+        <!-- Message Field -->
+        <div class="flex flex-col w-full">
+          <label for="cta-message" class="text-fluid-body text-theme-fg-muted pb-fluid-2">
+            {ctaContent.form.messagePlaceholder}
+          </label>
+          <textarea
+            id="cta-message"
+            name="message"
+            class="w-full bg-transparent border-none outline-none text-fluid-body text-theme-fg pb-fluid-2 resize-none min-h-fluid-24"
+            required
+          ></textarea>
+          <div class="w-full h-px bg-theme-fg" />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-fluid-4">
+          <button
+            type="submit"
+            class="flex items-center gap-fluid-4 group cursor-pointer w-fit"
+          >
+            <span class="text-fluid-body text-theme-fg font-normal uppercase">
+              {ctaContent.form.submitButton}
+            </span>
+            <svg
+              width="25"
+              height="12"
+              viewBox="0 0 25 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="transition-transform group-hover:translate-x-1"
+            >
+              <path
+                d="M25 5.60995L19.3901 11.2199M25 5.60995L19.3901 0M25 5.60995H0"
+                stroke="currentColor"
+                stroke-width="1.2835"
+                class="stroke-theme-fg"
+              />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </section>
+
+<script>
+  // Handle form submission with client-side script
+  const form = document.getElementById('contact-cta-form') as HTMLFormElement;
+  
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      
+      console.log('Form submitted:', data);
+      alert('Thank you! Your message has been sent.');
+      form.reset();
+    });
+  }
+</script>

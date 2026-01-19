@@ -1,31 +1,106 @@
 ---
+import { Picture } from "astro:assets";
+import aboutImage from "../assets/property1-interior.jpg";
 ---
 
 <!-- ========================================
-     ABOUT - Statement section
+     ABOUT - Swiss Design Statement
      ======================================== -->
-<section id="about" class="py-fluid-32 px-fluid-8">
-	<div class="grid grid-cols-1 lg:grid-cols-12 gap-fluid-16">
-		<!-- Left: Label -->
-		<div class="lg:col-span-3">
-			<span class="text-fluid-caption text-theme-fg-muted">About</span>
+<section id="about" class="py-section-space px-layout-margin bg-theme-bg overflow-hidden">
+	<div class="flex flex-col gap-fluid-24">
+		<!-- Top Row: Label and Main Heading -->
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-fluid-12 items-start">
+			<!-- Left Column: Section Number/Label -->
+			<div class="lg:col-span-3 flex items-start gap-fluid-4">
+				<span class="text-fluid-caption font-light text-theme-fg-muted">[01]</span>
+				<span class="text-fluid-caption font-light tracking-widest text-theme-fg uppercase">Our Story</span>
+			</div>
+
+			<!-- Right Column: Large Statement Heading -->
+			<div class="lg:col-span-9">
+				<h2 class="text-fluid-title-xl font-light tracking-tight leading-[1.05] max-w-5xl text-theme-fg">
+					We design <span class="italic">atmospheres</span>, not just buildings. 
+					Our work is defined by material honesty and a <span class="italic">deep respect for nature.</span>
+				</h2>
+			</div>
 		</div>
 
-		<!-- Right: Content -->
-		<div class="lg:col-span-9 flex flex-col gap-fluid-16">
-			<h2 class="text-fluid-title-xl font-bold tracking-tight max-w-4xl">
-				We believe great design is invisible. It just works.
-			</h2>
+		<!-- Middle Row: Decorative Badge, Description, and Small Image -->
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-fluid-12 items-center">
+			<!-- Left: Decorative Architectural Detail -->
+			<div class="hidden lg:flex lg:col-span-3 justify-center">
+				<div class="relative w-fluid-48 h-fluid-48 border-l border-t border-theme-border flex flex-col justify-between p-fluid-4 group overflow-hidden opacity-50">
+					<!-- Top Left: Technical Label -->
+					<div class="flex flex-col gap-0 text-[9px] uppercase tracking-[0.2em] font-light text-theme-fg-muted">
+						<span>Sect. 01/A</span>
+						<span class="opacity-50">Ref. 2026</span>
+					</div>
 
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-fluid-16">
-				<p class="text-fluid-body text-theme-fg-muted">
-					Our approach combines Swiss design principles with modern digital craft.
-					Every pixel serves a purpose. Every interaction tells a story.
-				</p>
-				<p class="text-fluid-body text-theme-fg-muted">
-					We partner with ambitious brands to create digital experiences
-					that are as beautiful as they are functional.
-				</p>
+					<!-- Center: Crosshair Motif -->
+					<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10 group-hover:opacity-30 transition-opacity duration-700">
+						<div class="w-full h-[0.5px] bg-theme-fg"></div>
+						<div class="h-full w-[0.5px] bg-theme-fg absolute"></div>
+						<div class="w-fluid-12 h-fluid-12 border border-theme-fg rounded-full"></div>
+					</div>
+
+					<!-- Bottom Right: Large Subtle Number -->
+					<div class="self-end text-fluid-title-xl font-light text-theme-fg-muted/10 leading-none tracking-tighter select-none group-hover:text-theme-fg-muted/20 transition-colors duration-700">
+						01
+					</div>
+				</div>
+			</div>
+
+			<!-- Center: Description Text with Decorative Elements -->
+			<div class="lg:col-span-5 relative flex flex-col items-center">
+				<!-- Horizontal Line -->
+				<div class="hidden lg:block absolute left-[-20%] top-1/2 w-[15%] h-[1px] bg-theme-border"></div>
+				
+				<div class="flex flex-col gap-fluid-8 max-w-md">
+					<p class="text-fluid-body text-theme-fg-muted font-light leading-relaxed">
+						In a world overwhelmed by noise, we believe in the power of quiet architecture. 
+						Raw textures, sun-washed surfaces, and sculptural geometry create calm environments.
+					</p>
+					
+					<!-- Triple Star Ornament -->
+					<div class="flex gap-fluid-2 text-theme-fg-muted text-[10px] tracking-widest">
+						<span>*</span><span>*</span><span>*</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Right: Small Image and Caption -->
+			<div class="lg:col-span-4 flex flex-col items-end gap-fluid-4">
+				<div class="w-full aspect-square md:w-[280px] md:h-[340px] overflow-hidden bg-theme-bg-subtle">
+					<Picture
+						src={aboutImage}
+						formats={['avif', 'webp']}
+						alt="Architectural detail"
+						class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+					/>
+				</div>
+				<div class="flex justify-between w-full md:w-[280px] text-[10px] uppercase tracking-widest text-theme-fg-muted font-light">
+					<span>Solém Villa</span>
+					<span>©2026</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bottom Row: Navigation Arrows (Visual only) -->
+		<div class="flex justify-between items-center pt-fluid-8 border-t border-theme-border/50">
+			<div class="flex items-center gap-fluid-4 opacity-30">
+				<div class="w-10 h-10 border border-theme-fg rounded-full flex items-center justify-center cursor-not-allowed">
+					<svg class="w-4 h-4 rotate-180" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M25 5.60995L19.3901 11.2199M25 5.60995L19.3901 0M25 5.60995H0" stroke="currentColor" stroke-width="1"/>
+					</svg>
+				</div>
+			</div>
+			
+			<div class="flex items-center gap-fluid-4 opacity-30">
+				<div class="w-10 h-10 border border-theme-fg rounded-full flex items-center justify-center cursor-not-allowed">
+					<svg class="w-4 h-4" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M25 5.60995L19.3901 11.2199M25 5.60995L19.3901 0M25 5.60995H0" stroke="currentColor" stroke-width="1"/>
+					</svg>
+				</div>
 			</div>
 		</div>
 	</div>
