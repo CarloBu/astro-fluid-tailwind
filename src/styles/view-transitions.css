@@ -1,0 +1,34 @@
+/* ============================================
+   VIEW TRANSITIONS
+   ============================================ */
+
+@keyframes window-slide-out {
+  to {
+    transform: translateY(-7%) scale(0.92);
+    filter: brightness(0.6);
+    opacity: 0.5;
+  }
+}
+
+@keyframes window-slide-in {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+::view-transition-group(root) {
+  animation-duration: 1.1s;
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  background-color: black;
+}
+
+::view-transition-old(root) {
+  animation-name: window-slide-out;
+  z-index: 1;
+  transform-origin: center top;
+}
+
+::view-transition-new(root) {
+  animation-name: window-slide-in;
+  z-index: 2;
+}
